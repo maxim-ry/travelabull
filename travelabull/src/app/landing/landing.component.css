@@ -38,10 +38,8 @@ body {
     align-items: center;
   }
   
-  .title {
-    color: #CFC493;
-    font-size: 48px;
-    font-weight: 700;
+  .logo {
+    width: 300px;
     text-align: center;
     margin-bottom: 16px;
   }
@@ -51,6 +49,8 @@ body {
     font-weight: 500;
     text-align: center;
     margin-bottom: 32px;
+    color: #C5A34C;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.95);
   }
   
   .subsubtitle {
@@ -58,5 +58,7 @@ body {
     font-weight: 500;
     text-align: center;
     padding-bottom: 20px;
+    color: #C5A34C;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.95);
   }
   
