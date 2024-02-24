@@ -21,7 +21,7 @@
     <div class="subsubtitle">Enter your Destinations</div>
     <mat-form-field appearance="fill" style="width: 300px">
       <mat-label>Destinations</mat-label>
-      <input matInput placeholder="Tampa, Tokyo, Paris...">
+      <input matInput [formControl]="addressControl" placeholder="Tampa, Tokyo, Paris..." #search>
     </mat-form-field>
   
     <div class="subsubtitle">Enter a Date Range</div>
@@ -38,10 +38,10 @@
       
   
     <div class="subsubtitle">Enter any Specifics</div>
-    <mat-form-field appearance="fill" style="width: 300px">
+    <mat-form-field appearance="fill" style="width: 300px" class="finalsubsubtitle">
       <textarea matInput placeholder="Tour USF, Visit Shibuya, Climb the Eiffel Tower..." style="resize: none;"></textarea>
     </mat-form-field>
+    <button mat-raised-button class="button">Click me</button>
   </div>
-  
 </body>
 </html>
