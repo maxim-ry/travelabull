@@ -1,0 +1,31 @@
+/* result-card.component.css */
+.result-card {
+    width: 600px;
+    margin: 10px;
+  }
+  
+  .day-title {
+    margin: 0;
+    padding: 8px;
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .card-content {
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .google-maps-embed {
+    width: 50%;
+    height: 300px; /* Adjust the height as needed */
+    margin-right: 10px;
+  }
+  
+  .schedule {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+  }
+  

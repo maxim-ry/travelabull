@@ -11,12 +11,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResultComponent } from './result/result.component';
+import { MatCardModule } from '@angular/material/card';
+import { ResultCardComponent } from './result-card/result-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     ResultComponent,
+    ResultCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { ResultComponent } from './result/result.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
