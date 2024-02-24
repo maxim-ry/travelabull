@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBull - An AI Powered Travel Initiary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.component.css">
+</head>
+<body>
+
+  <video autoplay muted loop id="video-bg">
+    <source src="assets/sky.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="container">
+    <div class="title">TravelBull</div>
+    <div class="subtitle">An AI Powered Travel Initiary</div>
+    
+    <div class="subsubtitle">Enter your Destinations</div>
+    <mat-form-field appearance="fill">
+      <mat-label>Destinations</mat-label>
+      <input matInput placeholder="Tampa, Tokyo, Paris...">
+    </mat-form-field>
+  
+    <div class="subsubtitle">Enter a Date Range</div>
+    <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="picker1" placeholder="Start Date">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="picker2" placeholder="End Date">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+  
+    <div class="subsubtitle">Enter any Specifics</div>
+    <mat-form-field appearance="fill">
+      <textarea matInput placeholder="Tour USF, Visit Shibuya, Climb the Eiffel Tower..."></textarea>
+    </mat-form-field>
+  </div>
+  
+</body>
+</html>
