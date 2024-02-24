@@ -19,13 +19,13 @@
     <div class="subtitle">An AI Powered Travel Initiary</div>
     
     <div class="subsubtitle">Enter your Destinations</div>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" style="width: 300px">
       <mat-label>Destinations</mat-label>
       <input matInput placeholder="Tampa, Tokyo, Paris...">
     </mat-form-field>
   
     <div class="subsubtitle">Enter a Date Range</div>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" style="width: 300px">
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [rangePicker]="picker">
           <input matStartDate placeholder="Start date">
@@ -38,8 +38,8 @@
       
   
     <div class="subsubtitle">Enter any Specifics</div>
-    <mat-form-field appearance="fill">
-      <textarea matInput placeholder="Tour USF, Visit Shibuya, Climb the Eiffel Tower..."></textarea>
+    <mat-form-field appearance="fill" style="width: 300px">
+      <textarea matInput placeholder="Tour USF, Visit Shibuya, Climb the Eiffel Tower..." style="resize: none;"></textarea>
     </mat-form-field>
   </div>
   
