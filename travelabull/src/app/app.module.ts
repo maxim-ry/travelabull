@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResultComponent } from './result/result.component';
 import { MatCardModule } from '@angular/material/card';
 import { ResultCardComponent } from './result-card/result-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { ResultCardComponent } from './result-card/result-card.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
