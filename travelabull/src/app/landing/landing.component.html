@@ -26,7 +26,7 @@
   
     <div class="subsubtitle">Enter a Date Range</div>
         <mat-form-field appearance="fill" style="width: 300px">
-      <mat-label>Enter a date range</mat-label>
+      <mat-label>Enter a date rannge</mat-label>
       <mat-date-range-input [rangePicker]="picker">
         <input matStartDate placeholder="Start date" [(ngModel)]="startDate">
         <input matEndDate placeholder="End date" [(ngModel)]="endDate">
@@ -41,7 +41,7 @@
     <mat-form-field appearance="fill" style="width: 300px" class="finalsubsubtitle">
       <textarea matInput placeholder="Tour USF, Visit Shibuya, Climb the Eiffel Tower..." style="resize: none;" [(ngModel)]="specification"></textarea>
     </mat-form-field>
-    <button mat-raised-button class="button" (click)="submit()">Submit</button>
+    <button mat-raised-button style="width: 300px" class="button" (click)="submit()">Submit</button>
   </div>
 </body>
 </html>

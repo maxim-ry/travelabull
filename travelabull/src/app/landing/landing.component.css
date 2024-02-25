@@ -64,16 +64,17 @@ body {
   }
   
   .finalsubsubtitle {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
   }
 
 
   .button {
     font-size: large;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     width: 200px;
     height: 50px;
+    font-weight: bold;
+    color: #C5A34C !important;
   }
-  
