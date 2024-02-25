@@ -26,7 +26,7 @@ def get_morning_places(city_name, radius = 8046.72):
     
     city_location = geocode_result[0]['geometry']['location']
     #hols all the places
-    places_list = []
+    morning_places_list = []
     
     # Search for popular places of each type
     for place_type in morning_place_types:
@@ -38,10 +38,10 @@ def get_morning_places(city_name, radius = 8046.72):
                 'address': place.get('vicinity', 'N/A'),
                 'rating': place.get('rating', 'N/A')
             }
-            places_list.append(place_details)
+            morning_places_list.append(place_details)
     
     # Convert the rating to a float (or 0 if it's "N/A")
-    for place in places_list:
+    for place in morning_places_list:
         try:
             # Try converting the rating to a float
             place['rating'] = float(place['rating'])
@@ -51,24 +51,143 @@ def get_morning_places(city_name, radius = 8046.72):
             # Replace 0 with your desired default value if needed
 
     # Shuffle the list of places
-    random.shuffle(places_list)
+    random.shuffle(morning_places_list)
 
 
     # Sort the places_list based on rating in descending order
-    places_list.sort(key=lambda x: x['rating'], reverse=True)
+    morning_places_list.sort(key=lambda x: x['rating'], reverse=True)
      
     
     # Select only the first 10 places (or fewer if there are fewer than 10 available)
-    selected_places = places_list[:20]
+    selected_places = morning_places_list[:20]
 
-    # Return a random sample of 0 to 4 places
+    # Return a random sample more then 2 or equal less then 5 places
     #random.sample(selected_places, random.randint(1, 4)) 
-    return selected_places
+
+    return random.sample(selected_places, random.randint(2, 5)) 
+
+
+def get_afternoon_places(city_name, radius = 8046.72):
+
+    # Geocoding the city name to get its coordinates
+    geocode_result = gmaps.geocode(city_name)
+    if not geocode_result:
+        print("City not found.")
+        return []
+    
+    city_location = geocode_result[0]['geometry']['location']
+    #hols all the places
+    afternoon_place_list = []
+    
+    # Search for popular places of each type
+    for place_type in afternoon_place_types:
+        places = gmaps.places_nearby(location=city_location, radius=radius, type=place_type)
+        for place in places['results']:
+            place_details = {
+                'name': place['name'],
+                'type': place_type,
+                'address': place.get('vicinity', 'N/A'),
+                'rating': place.get('rating', 'N/A')
+            }
+            afternoon_place_list.append(place_details)
+    
+    # Convert the rating to a float (or 0 if it's "N/A")
+    for place in afternoon_place_list:
+        try:
+            # Try converting the rating to a float
+            place['rating'] = float(place['rating'])
+        except ValueError:
+            # If conversion fails, set it to a default (e.g., 0) or leave it as "N/A"
+            place['rating'] = 0 
+            # Replace 0 with your desired default value if needed
+
+    # Shuffle the list of places
+    random.shuffle(afternoon_place_list)
+
+
+    # Sort the places_list based on rating in descending order
+    afternoon_place_list.sort(key=lambda x: x['rating'], reverse=True)
+     
+    
+    # Select only the first 10 places (or fewer if there are fewer than 10 available)
+    selected_places = afternoon_place_list[:20]
+
+    # Return a random sample more then 2 or equal less then 5 places
+    #random.sample(selected_places, random.randint(1, 4)) 
+
+    return random.sample(selected_places, random.randint(2, 5)) 
+
+
+def get_evening_places(city_name, radius = 8046.72):
+
+    # Geocoding the city name to get its coordinates
+    geocode_result = gmaps.geocode(city_name)
+    if not geocode_result:
+        print("City not found.")
+        return []
+    
+    city_location = geocode_result[0]['geometry']['location']
+    #hols all the places
+    evening_place_list = []
+    
+    # Search for popular places of each type
+    for place_type in evening_place_types:
+        places = gmaps.places_nearby(location=city_location, radius=radius, type=place_type)
+        for place in places['results']:
+            place_details = {
+                'name': place['name'],
+                'type': place_type,
+                'address': place.get('vicinity', 'N/A'),
+                'rating': place.get('rating', 'N/A')
+            }
+            evening_place_list.append(place_details)
+    
+    # Convert the rating to a float (or 0 if it's "N/A")
+    for place in evening_place_list:
+        try:
+            # Try converting the rating to a float
+            place['rating'] = float(place['rating'])
+        except ValueError:
+            # If conversion fails, set it to a default (e.g., 0) or leave it as "N/A"
+            place['rating'] = 0 
+            # Replace 0 with your desired default value if needed
+
+    # Shuffle the list of places
+    random.shuffle(evening_place_list)
+
+
+    # Sort the places_list based on rating in descending order
+    evening_place_list.sort(key=lambda x: x['rating'], reverse=True)
+     
+    
+    # Select only the first 10 places (or fewer if there are fewer than 10 available)
+    selected_places = evening_place_list[:20]
+
+    # Return a random sample more then 2 or equal less then 5 places
+    #random.sample(selected_places, random.randint(1, 4)) 
+
+    return random.sample(selected_places, random.randint(2, 5)) 
 
 # Example usage:
-city_name = 'New York'
-radius = 5000  # in meters
-popular_places = get_morning_places(city_name, radius)
+# city_name = 'New York'
+# popular_places = get_morning_places(city_name)
+# for place in popular_places:
+#     print("Name:", place['name'])
+#     print("Address:", place['address'])
+#     print("Rating:", place['rating'])
+#     print("Type:", place['type'])
+#     print()
+
+# city_name = 'Boston Massachusetts'
+# popular_places = get_afternoon_places(city_name)
+# for place in popular_places:
+#     print("Name:", place['name'])
+#     print("Address:", place['address'])
+#     print("Rating:", place['rating'])
+#     print("Type:", place['type'])
+#     print()
+city_name = 'Boston'
+popular_places = get_evening_places(city_name)
 for place in popular_places:
     print("Name:", place['name'])
     print("Address:", place['address'])
