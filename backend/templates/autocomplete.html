@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Autocomplete</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+</head>
+<body>
+    <h1>Place Autocomplete</h1>
+    <input type="text" id="autocomplete-input" placeholder="Enter a location">
+    <ul id="autocomplete-results"></ul>
+
+    <script>
+        function initAutocomplete() {
+            var input = document.getElementById('autocomplete-input');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+
+            autocomplete.addListener('place_changed', function() {
+                var place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    console.log("Place not found!");
+                    return;
+                }
+                // You can handle the selected place here
+                console.log("Selected Place:", place);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initAutocomplete();
+        });
+    </script>
+</body>
+</html>
