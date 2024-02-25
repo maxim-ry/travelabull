@@ -2,6 +2,7 @@
 
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { FormControl } from '@angular/forms';
+
 declare var google: any;
 
 @Component({
@@ -10,6 +11,11 @@ declare var google: any;
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  
+  public startDate: Date = new Date();
+  public endDate: Date = new Date();
+  public specification: String = "";
+  
   public addressControl = new FormControl();
   @ViewChild('search', {static: false}) public searchElementRef!: ElementRef;
 
@@ -41,4 +47,17 @@ export class LandingComponent implements OnInit {
       console.error('Google maps script not loaded');
     }
   }
+
+  submit() {
+    console.log(this.startDate);
+    console.log(this.endDate);
+    console.log(this.specification);
+    console.log(this.addressControl.value);
+
+    const differenceInMs = this.endDate.getTime() - this.startDate.getTime();
+    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24)) + 1;
+
+    console.log(differenceInDays);
+  }
+
 }
