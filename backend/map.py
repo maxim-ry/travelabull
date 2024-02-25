@@ -16,7 +16,12 @@ morning_place_types = ['tourist_attraction','bakery', 'bicycle_store', 'cafe', '
 afternoon_place_types = ['tourist_attraction', 'amusement_park', 'aquarium', 'art_gallery', 'church', 'shopping_mall', 'clothing_store', 'courthouse', 'embassy', 'jewelry_store', 'library', 'mosque', 'museum', 'stadium', 'synagogue', 'zoo']
 evening_place_types = ['tourist_attraction','bar', 'night_club', 'bowling_alley', 'casino', 'restaurant', 'stadium']
 
-def get_morning_places(city_name, radius = 8046.72):
+
+
+
+
+def get_morning_places(city_name, description = '', radius = 4828.03):
+    
 
     # Geocoding the city name to get its coordinates
     geocode_result = gmaps.geocode(city_name)
@@ -58,14 +63,14 @@ def get_morning_places(city_name, radius = 8046.72):
     morning_places_list.sort(key=lambda x: x['rating'], reverse=True)
      
     
-    # Select only the first 10 places (or fewer if there are fewer than 10 available)
+    # Select only the first 20 places (or fewer if there are fewer than 20 available)
     selected_places = morning_places_list[:20]
 
-    # Return a random sample more then 2 or equal less then 5 places
-    return random.sample(selected_places, random.randint(2, 5)) 
+    # Return a random sample more then 2 or equal less then 3 places
+    return random.sample(selected_places, random.randint(2, 3)) 
 
 
-def get_afternoon_places(city_name, radius = 8046.72):
+def get_afternoon_places(city_name, description = '', radius = 4828.03):
 
     # Geocoding the city name to get its coordinates
     geocode_result = gmaps.geocode(city_name)
@@ -116,7 +121,7 @@ def get_afternoon_places(city_name, radius = 8046.72):
     return random.sample(selected_places, random.randint(2, 5)) 
 
 
-def get_evening_places(city_name, radius = 8046.72):
+def get_evening_places(city_name, description = '', radius = 4828.03):
 
     # Geocoding the city name to get its coordinates
     geocode_result = gmaps.geocode(city_name)
@@ -166,15 +171,15 @@ def get_evening_places(city_name, radius = 8046.72):
 
     return random.sample(selected_places, random.randint(2, 5)) 
  #Example usage:
-# Example usage:
-# city_name = 'New York'
-# popular_places = get_morning_places(city_name)
-# for place in popular_places:
-#     print("Name:", place['name'])
-#     print("Address:", place['address'])
-#     print("Rating:", place['rating'])
-#     print("Type:", place['type'])
-#     print()
+
+city_name = 'New York'
+popular_places = get_morning_places(city_name, description = 'some kind of description')
+for place in popular_places:
+    print("Name:", place['name'])
+    print("Address:", place['address'])
+    print("Rating:", place['rating'])
+    print("Type:", place['type'])
+    print()
 
 # city_name = 'Boston Massachusetts'
 # popular_places = get_afternoon_places(city_name)
@@ -184,7 +189,7 @@ def get_evening_places(city_name, radius = 8046.72):
 #     print("Rating:", place['rating'])
 #     print("Type:", place['type'])
 #     print()
-city_name = 'Boston'
+city_name = 'South Tampa'
 popular_places = get_evening_places(city_name)
 for place in popular_places:
     print("Name:", place['name'])
