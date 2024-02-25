@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 def read_api_key():
     file_path = '/Users/Amrit/Desktop/Max_API_key.txt'
-    # 'AIzaSyAeBKDh9v04QH92KSF_BbDdEOrzxR0n-7Y'
+    
     # Read the API key from the file
     with open(file_path, 'r') as file:
         return file.read().strip()
