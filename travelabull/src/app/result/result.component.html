@@ -4,7 +4,19 @@
   Your browser does not support HTML5 video.
 </video>
 
-<div class="result-container" fxLayout="column" fxLayoutAlign="center center">
-    <app-result-card *ngFor="let result of results" [result]="result"></app-result-card>
+<div class="custom-toolbar">
+  <div class="title-box">
+    <span class="header-text">
+      {{ receivedDifferenceInDays }}-day trip to {{ receivedLocation }}
+    </span>
   </div>
-  
+</div>
+
+
+<!-- <div class="result-container" fxLayout="column" fxLayoutAlign="center center">
+    <app-result-card *ngFor="let result of results" [result]="result"></app-result-card>
+  </div> -->
+
+  <div class="result-container">
+<app-result-card *ngIf="receivedData" [dayData]="receivedData"></app-result-card>
+</div>
