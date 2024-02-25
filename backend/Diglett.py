@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-GOOGLE_MAPS_API_KEY = 'AIzaSyAeBKDh9v04QH92KSF_BbDdEOrzxR0n-7Y'
+GOOGLE_MAPS_API_KEY = '/Users/Amrit/Desktop/Max_API_key.txt'
 
 @app.route('/get_popular_neighborhoods', methods=['GET'])
 def get_popular_neighborhoods():
