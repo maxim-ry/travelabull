@@ -3,10 +3,11 @@ import googlemaps
 
 
 def get_api_key():
+    return "AIzaSyAeBKDh9v04QH92KSF_BbDdEOrzxR0n-7Y"
     # Assuming your API key is stored in a file named 'api_key.txt'
-    api_key_file = '/Users/sultansamid/Documents/GitHub/allCodings/auth.txt'  # Specify the path to your API key file
-    with open(api_key_file, 'r') as file:
-        return file.read().strip()
+    # api_key_file = '/Users/sultansamid/Documents/GitHub/allCodings/auth.txt'  # Specify the path to your API key file
+    # with open(api_key_file, 'r') as file:
+    #     return file.read().strip()
 
 gmaps = googlemaps.Client(key=get_api_key())
 
@@ -170,16 +171,7 @@ def get_evening_places(city_name, description = '', radius = 4828.03):
     #random.sample(selected_places, random.randint(1, 4)) 
 
     return random.sample(selected_places, random.randint(2, 5)) 
- #Example usage:
 
-city_name = 'New York'
-popular_places = get_morning_places(city_name, description = 'some kind of description')
-for place in popular_places:
-    print("Name:", place['name'])
-    print("Address:", place['address'])
-    print("Rating:", place['rating'])
-    print("Type:", place['type'])
-    print()
 
 # city_name = 'Boston Massachusetts'
 # popular_places = get_afternoon_places(city_name)
@@ -189,8 +181,21 @@ for place in popular_places:
 #     print("Rating:", place['rating'])
 #     print("Type:", place['type'])
 #     print()
-city_name = 'South Tampa'
-popular_places = get_evening_places(city_name)
+# city_name = 'South Tampa'
+# popular_places = get_evening_places(city_name)
+# for place in popular_places:
+#     print("Name:", place['name'])
+#     print("Address:", place['address'])
+#     print("Rating:", place['rating'])
+#     print("Type:", place['type'])
+#     print()
+
+
+
+ #Example usage:
+
+city_name = 'New York'
+popular_places = get_morning_places(city_name)
 for place in popular_places:
     print("Name:", place['name'])
     print("Address:", place['address'])

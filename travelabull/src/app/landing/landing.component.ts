@@ -2,6 +2,7 @@
 
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 declare var google: any;
 
@@ -19,7 +20,7 @@ export class LandingComponent implements OnInit {
   public addressControl = new FormControl();
   @ViewChild('search', {static: false}) public searchElementRef!: ElementRef;
 
-  constructor(private ngZone: NgZone) {}
+  constructor(private ngZone: NgZone,  private http: HttpClient) {}
 
   ngOnInit() {}
 
@@ -58,6 +59,27 @@ export class LandingComponent implements OnInit {
     const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24)) + 1;
 
     console.log(differenceInDays);
+
+    // Prepare the data to send to the Flask backend
+  const data = {
+    startDate: this.startDate,
+    endDate: this.endDate,
+    specification: this.specification,
+    location: this.addressControl.value,
+    differenceInDays: differenceInDays
+  };
+
+  // Send the data to your Flask API endpoint
+  this.http.post('http://127.0.0.1:5000/api/data', data).subscribe(
+    (response) => {
+      console.log('Data sent successfully:', response);
+      // Handle success if needed
+    },
+    (error) => {
+      console.error('Error sending data:', error);
+      // Handle error if needed
+    }
+  );
   }
 
 }
