@@ -62,8 +62,6 @@ def get_morning_places(city_name, radius = 8046.72):
     selected_places = morning_places_list[:20]
 
     # Return a random sample more then 2 or equal less then 5 places
-    #random.sample(selected_places, random.randint(1, 4)) 
-
     return random.sample(selected_places, random.randint(2, 5)) 
 
 
@@ -167,7 +165,7 @@ def get_evening_places(city_name, radius = 8046.72):
     #random.sample(selected_places, random.randint(1, 4)) 
 
     return random.sample(selected_places, random.randint(2, 5)) 
-
+ #Example usage:
 # Example usage:
 # city_name = 'New York'
 # popular_places = get_morning_places(city_name)
