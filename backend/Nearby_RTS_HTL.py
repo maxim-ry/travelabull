@@ -13,7 +13,7 @@ import requests
 
 app = Flask(__name__)  # Create a Flask application instance
 
-GOOGLE_MAPS_API_KEY = '/Users/Amrit/Desktop/Max_API_key.txt'  # Set your Google Maps API key
+GOOGLE_MAPS_API_KEY = 'AIzaSyAeBKDh9v04QH92KSF_BbDdEOrzxR0n-7Y'  # Set your Google Maps API key
 
 def get_nearby_places(lat, lng, radius, place_type):
     # Function to fetch nearby places (restaurants or hotels) using Google Maps Places API
@@ -33,6 +33,7 @@ def get_place_details(place_id):
 
 @app.route('/get_restaurants_and_hotels', methods=['POST'])
 # Define a route '/get_restaurants_and_hotels' that accepts POST requests
+
 def get_restaurants_and_hotels():
     data = request.json  # Extract JSON data from the request body
     lat = data['latitude']  # Extract latitude from the JSON data
@@ -48,34 +49,33 @@ def get_restaurants_and_hotels():
         place['details'] = get_place_details(place['place_id'])  # Add details to each hotel
 
     # Sort the restaurants and hotels by user ratings
-    restaurants_sorted = sorted(restaurants, key=lambda x: x.get('rating', 0), reverse=True)
-    hotels_sorted = sorted(hotels, key=lambda x: x.get('rating', 0), reverse=True)
+    restaurants_sorted = sorted(restaurants, key=lambda x: (x.get('rating', 0), -x.get('price_level', 0)), reverse=True)
+    hotels_sorted = sorted(hotels, key=lambda x: (x.get('rating', 0), -x.get('price_level', 0)), reverse=True)
+
 
     return jsonify({
         'restaurants': restaurants_sorted[:5],  # Return the top 5 restaurants
         'hotels': hotels_sorted[:5]  # Return the top 5 hotels
     })
 
-
-
 if __name__ == '__main__':
 
     # Example usage of the functions to demonstrate their functionality
     # Replace the latitude and longitude with your desired coordinates
 
-    example_latitude = 27.964157
-    example_longitude = -82.452606
-    example_radius = 16093.4  # 10 miles in meters
-    example_restaurants = get_nearby_places(example_latitude, example_longitude, example_radius, 'restaurant')
-    example_hotels = get_nearby_places(example_latitude, example_longitude, example_radius, 'lodging')
+    # example_latitude = 27.964157
+    # example_longitude = -82.452606
+    # example_radius = 16093.4  # 10 miles in meters
+    # example_restaurants = get_nearby_places(example_latitude, example_longitude, example_radius, 'restaurant')
+    # example_hotels = get_nearby_places(example_latitude, example_longitude, example_radius, 'lodging')
 
-    print("Example Nearby Restaurants:")
-    for restaurant in example_restaurants[:5]:
-        print(f"{restaurant['name']} - Rating: {restaurant.get('rating', 'No rating')}")
+    # print("Example Nearby Restaurants:")
+    # for restaurant in example_restaurants[:5]:
+    #     print(f"{restaurant['name']} - Rating: {restaurant.get('rating', 'No rating')}")
 
-    print("\nExample Nearby Hotels:")
-    for hotel in example_hotels[:5]:
-        print(f"{hotel['name']} - Rating: {hotel.get('rating', 'No rating')}")
+    # print("\nExample Nearby Hotels:")
+    # for hotel in example_hotels[:5]:
+    #     print(f"{hotel['name']} - Rating: {hotel.get('rating', 'No rating')}")
         
     app.run(debug=True)  # Run the Flask application in debug mode
 
