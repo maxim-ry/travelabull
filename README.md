@@ -23,17 +23,25 @@ TravelABull is built using a robust stack of modern technologies:
 - **Backend**: Flask, Python
 - **APIs**: Google Gemini AI, Google Maps API
 
+## Screenshots
+
+<div style="display: flex;">
+    <img src="/travelabull/src/assets/ss1.png" alt="Image 1" width="400"/>
+    <img src="/travelabull/src/assets/ss2.png" alt="Image 2" width="400"/>
+</div>
+
+
 ## Getting Started
 
 To get TravelABull up and running on your local machine, follow these steps:
 
-### Prerequisites
+#### Prerequisites
 
 Ensure you have the following installed:
 - Node.js and npm
 - Python 3.x
 
-### Installation
+#### Installation
 
 1. **Clone the repository**
 
