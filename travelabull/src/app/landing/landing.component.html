@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBull - An AI Powered Travel Initiary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.component.css">
+</head>
+<body>
+
+  <video [autoplay]="true" [muted]="true" [loop]="true">
+    <source src="assets/sky.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="container">
+    <img src="/assets/logo.png" alt="TravelABull Logo" class="logo">
+    <div class="subtitle">An AI Powered Travel Initiary</div>
+    
+    <div class="subsubtitle">Enter your Destinations</div>
+    <mat-form-field appearance="fill" style="width: 300px">
+      <mat-label>Destinations</mat-label>
+      <input matInput [formControl]="addressControl" placeholder="Tampa, Tokyo, Paris..." #search>
+    </mat-form-field>
+  
+    <div class="subsubtitle">Enter a Date Range</div>
+        <mat-form-field appearance="fill" style="width: 300px">
+      <mat-label>Enter a date rannge</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date" [(ngModel)]="startDate">
+        <input matEndDate placeholder="End date" [(ngModel)]="endDate">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+      
+      
+  
+    <div class="subsubtitle">Enter any Specifics</div>
+    <mat-form-field appearance="fill" style="width: 300px" class="finalsubsubtitle">
+      <textarea matInput placeholder="Tour USF, Visit Shibuya, Climb the Eiffel Tower..." style="resize: none;" [(ngModel)]="specification"></textarea>
+    </mat-form-field>
+    <button mat-raised-button style="width: 300px" class="button" (click)="submit()">Submit</button>
+  </div>
+</body>
+</html>

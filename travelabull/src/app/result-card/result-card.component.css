@@ -1,0 +1,37 @@
+/* result-card.component.css */
+.result-card {
+    width: 1000px;
+    margin: 10px;
+  }
+  
+  .day-title {
+    margin: 0;
+    padding: 8px;
+    background-color: #006747;
+    color:#C5A34C;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  .card-content {
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .google-maps-embed {
+    width: 50%;
+    height: 300px; /* Adjust the height as needed */
+    width: 300px;
+    margin-right: 10px;
+    padding-left: 30px;
+    padding-top: 25px;
+  }
+  
+  .schedule {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+  }
+  
