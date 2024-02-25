@@ -3,6 +3,7 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 declare var google: any;
 
@@ -20,7 +21,7 @@ export class LandingComponent implements OnInit {
   public addressControl = new FormControl();
   @ViewChild('search', {static: false}) public searchElementRef!: ElementRef;
 
-  constructor(private ngZone: NgZone,  private http: HttpClient) {}
+  constructor(private ngZone: NgZone,  private http: HttpClient, private router: Router) {}
 
   ngOnInit() {}
 
@@ -50,15 +51,15 @@ export class LandingComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.startDate);
-    console.log(this.endDate);
-    console.log(this.specification);
-    console.log(this.addressControl.value);
+    // console.log(this.startDate);
+    // console.log(this.endDate);
+    // console.log(this.specification);
+    // console.log(this.addressControl.value);
 
     const differenceInMs = this.endDate.getTime() - this.startDate.getTime();
     const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24)) + 1;
 
-    console.log(differenceInDays);
+    //console.log(differenceInDays);
 
     // Prepare the data to send to the Flask backend
   const data = {
@@ -69,17 +70,24 @@ export class LandingComponent implements OnInit {
     differenceInDays: differenceInDays
   };
 
-  // Send the data to your Flask API endpoint
-  this.http.post('http://127.0.0.1:5000/api/data', data).subscribe(
-    (response) => {
-      console.log('Data sent successfully:', response);
-      // Handle success if needed
-    },
-    (error) => {
-      console.error('Error sending data:', error);
-      // Handle error if needed
-    }
-  );
-  }
+    // Send the data to your Flask API endpoint
+    this.http.post('http://127.0.0.1:5000/api/data', data).subscribe(
+      (response) => {
+        console.log('Data sent successfully:', response);
+        // Handle success if needed
+      },
+      (error) => {
+        console.error('Error sending data:', error);
+        // Handle error if needed
+      }
+    );
+
+    this.router.navigate(['/result']);
+
+  
+  
+}
+
+  
 
 }

@@ -1,28 +1,14 @@
 import random
 import googlemaps
 
-
-def get_api_key():
-    return "AIzaSyAeBKDh9v04QH92KSF_BbDdEOrzxR0n-7Y"
-    # Assuming your API key is stored in a file named 'api_key.txt'
-    # api_key_file = '/Users/sultansamid/Documents/GitHub/allCodings/auth.txt'  # Specify the path to your API key file
-    # with open(api_key_file, 'r') as file:
-    #     return file.read().strip()
-
-gmaps = googlemaps.Client(key=get_api_key())
-
 # Define popular place types you want to search for
 place_types = ['tourist_attraction']
 morning_place_types = ['tourist_attraction','bakery', 'bicycle_store', 'cafe', 'city_hall', 'light_rail_station', 'park', 'subway_station', 'tourist_attraction', 'zoo']
 afternoon_place_types = ['tourist_attraction', 'amusement_park', 'aquarium', 'art_gallery', 'church', 'shopping_mall', 'clothing_store', 'courthouse', 'embassy', 'jewelry_store', 'library', 'mosque', 'museum', 'stadium', 'synagogue', 'zoo']
 evening_place_types = ['tourist_attraction','bar', 'night_club', 'bowling_alley', 'casino', 'restaurant', 'stadium']
 
-
-
-
-
-def get_morning_places(city_name, description = '', radius = 4828.03):
-    
+def get_morning_places(key, city_name, description = '', radius = 4828.03):
+    gmaps = googlemaps.Client(key)
 
     # Geocoding the city name to get its coordinates
     geocode_result = gmaps.geocode(city_name)
@@ -71,7 +57,9 @@ def get_morning_places(city_name, description = '', radius = 4828.03):
     return random.sample(selected_places, random.randint(2, 3)) 
 
 
-def get_afternoon_places(city_name, description = '', radius = 4828.03):
+def get_afternoon_places(key, city_name, description = '', radius = 4828.03):
+
+    gmaps = googlemaps.Client(key)
 
     # Geocoding the city name to get its coordinates
     geocode_result = gmaps.geocode(city_name)
@@ -122,7 +110,9 @@ def get_afternoon_places(city_name, description = '', radius = 4828.03):
     return random.sample(selected_places, random.randint(2, 5)) 
 
 
-def get_evening_places(city_name, description = '', radius = 4828.03):
+def get_evening_places(key, city_name, description = '', radius = 4828.03):
+
+    gmaps = googlemaps.Client(key)
 
     # Geocoding the city name to get its coordinates
     geocode_result = gmaps.geocode(city_name)
@@ -194,11 +184,29 @@ def get_evening_places(city_name, description = '', radius = 4828.03):
 
  #Example usage:
 
-city_name = 'New York'
-popular_places = get_morning_places(city_name)
-for place in popular_places:
-    print("Name:", place['name'])
-    print("Address:", place['address'])
-    print("Rating:", place['rating'])
-    print("Type:", place['type'])
-    print()
+# city_name = '30 Rockefeller Plaza, New York, NY 10112, United States'
+# popular_places = get_morning_places(city_name)
+# for place in popular_places:
+#     print("Name:", place['name'])
+#     print("Address:", place['address'])
+#     print("Rating:", place['rating'])
+#     print("Type:", place['type'])
+#     print()
+
+# city_name = '30 Rockefeller Plaza, New York, NY 10112, United States'
+# popular_places = get_evening_places(city_name)
+# for place in popular_places:
+#     print("Name:", place['name'])
+#     print("Address:", place['address'])
+#     print("Rating:", place['rating'])
+#     print("Type:", place['type'])
+#     print()
+
+# city_name = '30 Rockefeller Plaza, New York, NY 10112, United States'
+# popular_places = get_afternoon_places(city_name)
+# for place in popular_places:
+#     print("Name:", place['name'])
+#     print("Address:", place['address'])
+#     print("Rating:", place['rating'])
+#     print("Type:", place['type'])
+#     print()
