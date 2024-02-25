@@ -23,6 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+import { MatListModule } from '@angular/material/list';
 
 const routes: Routes = [
   // Other routes...
@@ -56,7 +60,10 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     CommonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatListModule,
+    MatGridListModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

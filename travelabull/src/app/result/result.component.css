@@ -9,5 +9,66 @@ video {
     z-index: -100;
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
-    filter: brightness(0.5) saturate(3) hue-rotate(-20deg);
+    filter: brightness(1) saturate(2) hue-rotate(-20deg);
   }
+
+
+  /* result.component.css */
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* result-card.component.css */
+.card-container {
+  margin-bottom: 16px; /* Add some spacing between cards */
+}
+
+.card {
+  border: 1px solid #006747; /* USF green color for border */
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  background-color: #fff; /* Set background color to white */
+  max-width: 400px; /* Limit the maximum width of the card */
+  width: 100%;
+}
+
+.card h2 {
+  color: #006747; /* USF green color for heading */
+  margin-bottom: 8px; /* Add spacing below the heading */
+}
+
+.card h3 {
+  color: #C5A34C; /* USF gold color for subheading */
+}
+
+.card p {
+  color: #006747; /* USF green color for paragraph text */
+  margin-bottom: 4px; /* Add spacing below each paragraph */
+}
+
+
+.custom-toolbar {
+   /* Use your desired background color */
+  color: #C5A34C; /* Text color */
+  height: 80px; /* Adjust the height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /* Optional: Add a subtle box shadow */
+}
+
+.title-box {
+  font-size: 60px;
+   /* Use your desired background color for the title box */
+  border-radius: 20px; /* Adjust the border-radius to make it more or less rounded */
+  padding: 10px 20px; /* Adjust the padding as needed */
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  text-shadow: rgba(0, 0, 0, 0.5) 10px 2px 2px;
+}
+

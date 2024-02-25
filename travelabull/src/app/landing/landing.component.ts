@@ -4,6 +4,7 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core'
 import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DataService } from '../app.service';
 
 declare var google: any;
 
@@ -14,6 +15,8 @@ declare var google: any;
 })
 export class LandingComponent implements OnInit {
   
+  public responseData: any;
+
   public startDate: Date = new Date();
   public endDate: Date = new Date();
   public specification: String = "";
@@ -21,7 +24,7 @@ export class LandingComponent implements OnInit {
   public addressControl = new FormControl();
   @ViewChild('search', {static: false}) public searchElementRef!: ElementRef;
 
-  constructor(private ngZone: NgZone,  private http: HttpClient, private router: Router) {}
+  constructor(private ngZone: NgZone,  private http: HttpClient, private router: Router, private dataService: DataService) {}
 
   ngOnInit() {}
 
@@ -70,19 +73,18 @@ export class LandingComponent implements OnInit {
     differenceInDays: differenceInDays
   };
 
-    // Send the data to your Flask API endpoint
-    this.http.post('http://127.0.0.1:5000/api/data', data).subscribe(
+  this.http.post('http://127.0.0.1:5000/api/data', data).subscribe(
       (response) => {
         console.log('Data sent successfully:', response);
-        // Handle success if needed
+        this.dataService.sendData(response);  // Send the response to the DataService
+        this.dataService.setLocation(data.location);  // Set the location in the DataService
+        this.dataService.setDifferenceInDays(data.differenceInDays);  // Set the differenceInDays in the DataService
+        this.router.navigate(['/result']);
       },
       (error) => {
         console.error('Error sending data:', error);
-        // Handle error if needed
       }
     );
-
-    this.router.navigate(['/result']);
 
   
   

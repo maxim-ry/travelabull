@@ -1,21 +1,22 @@
 from flask import Flask, request, jsonify, render_template
-from flask_socketio import SocketIO, emit
-from flask_cors import CORS  # Install using: pip install flask-cors
 
+from flask_cors import CORS  # Install using: pip install flask-cors
+import time
 
 import json
 
 import DayFinder
 import map as mapper
+import description as desc
 
 
 google_api_key = "AIzaSyAeBKDh9v04QH92KSF_BbDdEOrzxR0n-7Y"
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
-socketio = SocketIO(app, cors_allowed_origins="*")
+CORS(app)
 
 stored_location_information = None
+prev_data = {"key": "initial value"}
 
 @app.route('/api/data', methods=['POST'])
 def receive_data():
@@ -57,26 +58,16 @@ def receive_data():
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
+    global prev_data
     global stored_location_information
 
-    try:
+    if stored_location_information != prev_data:
+        prev_data = stored_location_information
         return jsonify(stored_location_information)
+    else:
+        return jsonify({"status": "no_change"})
 
-    except Exception as e:
-        # Handle the exception and return an error response
-        return jsonify({'error': str(e)}), 500
-
-@socketio.on('get_data')
-def handle_get_data():
-    try:
-
-        # Send the processed data to the client
-        emit('data_update', {'data': stored_location_information})
-
-    except Exception as e:
-        # Handle the exception and send an error message to the client
-        emit('data_update', {'error': str(e)})
 
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=5000)
+    app.run(debug=True, port=5000)

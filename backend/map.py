@@ -3,11 +3,11 @@ import googlemaps
 
 # Define popular place types you want to search for
 place_types = ['tourist_attraction']
-morning_place_types = ['tourist_attraction','bakery', 'bicycle_store', 'cafe', 'city_hall', 'light_rail_station', 'park', 'subway_station', 'tourist_attraction', 'zoo']
+morning_place_types = ['bakery', 'bicycle_store', 'cafe', 'city_hall', 'light_rail_station', 'park', 'subway_station', 'tourist_attraction', 'zoo']
 afternoon_place_types = ['tourist_attraction', 'amusement_park', 'aquarium', 'art_gallery', 'church', 'shopping_mall', 'clothing_store', 'courthouse', 'embassy', 'jewelry_store', 'library', 'mosque', 'museum', 'stadium', 'synagogue', 'zoo']
 evening_place_types = ['tourist_attraction','bar', 'night_club', 'bowling_alley', 'casino', 'restaurant', 'stadium']
 
-def get_morning_places(key, city_name, description = '', radius = 4828.03):
+def get_morning_places(key, city_name, description = '', radius = 4800):
     gmaps = googlemaps.Client(key)
 
     # Geocoding the city name to get its coordinates
@@ -57,7 +57,7 @@ def get_morning_places(key, city_name, description = '', radius = 4828.03):
     return random.sample(selected_places, random.randint(2, 3)) 
 
 
-def get_afternoon_places(key, city_name, description = '', radius = 4828.03):
+def get_afternoon_places(key, city_name, description = '', radius = 4800):
 
     gmaps = googlemaps.Client(key)
 
@@ -107,10 +107,10 @@ def get_afternoon_places(key, city_name, description = '', radius = 4828.03):
     # Return a random sample more then 2 or equal less then 5 places
     #random.sample(selected_places, random.randint(1, 4)) 
 
-    return random.sample(selected_places, random.randint(2, 5)) 
+    return random.sample(selected_places, random.randint(2, 3)) 
 
 
-def get_evening_places(key, city_name, description = '', radius = 4828.03):
+def get_evening_places(key, city_name, description = '', radius = 4800):
 
     gmaps = googlemaps.Client(key)
 
@@ -160,7 +160,7 @@ def get_evening_places(key, city_name, description = '', radius = 4828.03):
     # Return a random sample more then 2 or equal less then 5 places
     #random.sample(selected_places, random.randint(1, 4)) 
 
-    return random.sample(selected_places, random.randint(2, 5)) 
+    return random.sample(selected_places, random.randint(2, 3)) 
 
 
 # city_name = 'Boston Massachusetts'
