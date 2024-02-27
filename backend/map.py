@@ -11,7 +11,7 @@ def get_api_key():
 gmaps = googlemaps.Client(key=get_api_key())
 
 # Define popular place types you want to search for
-place_types = ['tourist_attraction']
+#place_types = ['tourist_attraction']
 morning_place_types = ['tourist_attraction','bakery', 'bicycle_store', 'cafe', 'city_hall', 'light_rail_station', 'park', 'subway_station', 'tourist_attraction', 'zoo']
 afternoon_place_types = ['tourist_attraction', 'amusement_park', 'aquarium', 'art_gallery', 'church', 'shopping_mall', 'clothing_store', 'courthouse', 'embassy', 'jewelry_store', 'library', 'mosque', 'museum', 'stadium', 'synagogue', 'zoo']
 evening_place_types = ['tourist_attraction','bar', 'night_club', 'bowling_alley', 'casino', 'restaurant', 'stadium']
@@ -171,24 +171,25 @@ def get_evening_places(city_name, description = '', radius = 4828.03):
 
     return random.sample(selected_places, random.randint(3, 3)) 
  #Example usage:
-
-# city_name = 'New York'
-# popular_places = get_morning_places(city_name, description = 'some kind of description')
-# for place in popular_places:
-#     print("Name:", place['name'])
-#     print("Address:", place['address'])
-#     print("Rating:", place['rating'])
-#     print("Type:", place['type'])
-#     print()
-
-# city_name = 'Boston Massachusetts'
-# popular_places = get_afternoon_places(city_name)
-# for place in popular_places:
-#     print("Name:", place['name'])
-#     print("Address:", place['address'])
-#     print("Rating:", place['rating'])
-#     print("Type:", place['type'])
-#     print()
+print("Morning \n")
+city_name = 'North Tampa'
+popular_places = get_morning_places(city_name, description = 'some kind of description')
+for place in popular_places:
+    print("Name:", place['name'])
+    print("Address:", place['address'])
+    print("Rating:", place['rating'])
+    print("Type:", place['type'])
+    print()
+print("Afternoon \n")
+city_name = 'South Tampa'
+popular_places = get_afternoon_places(city_name)
+for place in popular_places:
+    print("Name:", place['name'])
+    print("Address:", place['address'])
+    print("Rating:", place['rating'])
+    print("Type:", place['type'])
+    print()
+print("Evening \n")
 city_name = 'Tampa FL'
 popular_places = get_evening_places(city_name)
 for place in popular_places:
