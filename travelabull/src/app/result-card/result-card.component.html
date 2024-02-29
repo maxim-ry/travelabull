@@ -38,7 +38,7 @@
         <div *ngFor="let period of ['Morning', 'Afternoon', 'Evening']">
           <h2>{{ period }}</h2>
           <ng-container *ngFor="let location of dayData[day][period]">
-            <p>{{ location.name }}: {{ location.address }}</p>
+            <strong><p class=>{{ location.name }}: {{ location.address }}</p></strong>
             <p class="description">{{ location.description }}</p> <!-- Display the description here -->
             <p class="rating">Rating: <span class="rating-value">{{ location.rating }}</span></p>
             <hr>
