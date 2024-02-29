@@ -3,8 +3,8 @@ import googlemaps
 
 # Define popular place types you want to search for
 place_types = ['tourist_attraction']
-morning_place_types = ['bakery', 'bicycle_store', 'cafe', 'city_hall', 'light_rail_station', 'park', 'subway_station', 'tourist_attraction', 'zoo']
-afternoon_place_types = ['tourist_attraction', 'amusement_park', 'aquarium', 'art_gallery', 'church', 'shopping_mall', 'clothing_store', 'courthouse', 'embassy', 'jewelry_store', 'library', 'mosque', 'museum', 'stadium', 'synagogue', 'zoo']
+morning_place_types = ['bakery', 'cafe', 'park', 'tourist_attraction', 'zoo']
+afternoon_place_types = ['tourist_attraction', 'amusement_park', 'aquarium', 'art_gallery', 'museum', 'stadium', 'zoo', 'hindu_temple']
 evening_place_types = ['tourist_attraction','bar', 'night_club', 'bowling_alley', 'casino', 'restaurant', 'stadium']
 
 def get_morning_places(key, city_name, description = '', radius = 4800):
