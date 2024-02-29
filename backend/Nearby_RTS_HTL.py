@@ -14,7 +14,7 @@ import requests
 
 app = Flask(__name__)  # Create a Flask application instance
 
-GOOGLE_MAPS_API_KEY = 'AIzaSyDqE6z-6gRZtSOlDCptF7JPzbN5hq8XpjA'  # Set your Google Maps API key
+GOOGLE_MAPS_API_KEY = 'API_KEY_HERE'  # Set your Google Maps API key
 
 def get_nearby_places(lat, lng, radius, place_type):
     # Function to fetch nearby places (restaurants or hotels) using Google Maps Places API

@@ -10,7 +10,7 @@ import map as mapper
 import description as desc
 
 
-google_api_key = "AIzaSyDqE6z-6gRZtSOlDCptF7JPzbN5hq8XpjA"
+google_api_key = "API_KEY_HERE"
 
 app = Flask(__name__)
 CORS(app)

@@ -2,7 +2,7 @@ from openai import OpenAI
 import os
 
 # Assuming OpenAI is initialized elsewhere or as shown:
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='API_KEY_HERE')
 
 def get_summaries(cities):
     summaries = []

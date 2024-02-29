@@ -2,7 +2,7 @@ import json
 
 import requests
 
-api_key = 'AIzaSyDqE6z-6gRZtSOlDCptF7JPzbN5hq8XpjA'
+api_key = 'API_KEY_HERE'
 
 def get_nearby_locations(api_key, main_location, num_locations=5):
     base_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
