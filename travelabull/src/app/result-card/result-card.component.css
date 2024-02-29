@@ -1,0 +1,75 @@
+/* result-card.component.css */
+
+.card-container {
+  margin-top: 16px;
+  margin-bottom: 16px; /* Add some spacing between cards */
+}
+
+.card {
+   /* USF green color for border */
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px; /* Add spacing below each card */
+  background-color: rgba(255, 255, 255, 0.7); /* Set background color to white */
+   /* Increase the maximum width of the card */
+  width: 800px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.inner-card {
+   padding: 16px;
+   border-radius: 16px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   margin-bottom: 8px; /* Add spacing below each card */
+   background-color: rgba(255, 255, 255, 0.7); /* Set background color to white */
+   max-width: 768px;
+   width: 100%;
+   font-family: 'Roboto', sans-serif;
+}
+
+.card h1 {
+  color: #006747; /* USF green color for heading */
+  margin-bottom: 24px; /* Add spacing below the heading */
+  font-size: 50px;
+  
+}
+
+.card h2 {
+  color: #C5A34C; /* USF gold color for subheading */
+
+
+}
+
+.card p {
+  color: #006747; /* USF green color for paragraph text */
+  margin-bottom: 4px; /* Add spacing below each paragraph */
+
+}
+
+
+.location-info {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.location-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.location-address {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 16px;
+}
+
+.rating-value {
+  color: #ff9800; /* Set the color you want for the rating value */
+  font-weight: bold;
+}

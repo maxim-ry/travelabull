@@ -1,0 +1,50 @@
+<!-- result-card.component.html
+
+<mat-card class="result-card">
+    <mat-card-title class="day-title">Day {{ result.day }}</mat-card-title>
+    <div class="card-content">
+
+      <div class="google-maps-embed">
+       
+        <iframe
+        width="100%"
+        height="100%"
+        frameborder="0"
+        style="border:0"
+        [src]="safeMapEmbedUrl"
+        allowfullscreen
+        ></iframe>
+      </div>
+  
+    
+      <div class="schedule">
+        <h3>Morning</h3>
+        <p>{{ result.schedule.morning }}</p>
+  
+        <h3>Afternoon</h3>
+        <p>{{ result.schedule.afternoon }}</p>
+  
+        <h3>Evening</h3>
+        <p>{{ result.schedule.evening }}</p>
+      </div>
+    </div>
+  </mat-card>
+   -->
+
+   <div *ngFor="let day of getDays()" class="card-container" fxLayout="column">
+    <div class="card">
+      <h1>{{ day }}</h1>
+      <div class="inner-card">
+        <div *ngFor="let period of ['Morning', 'Afternoon', 'Evening']">
+          <h2>{{ period }}</h2>
+          <ng-container *ngFor="let location of dayData[day][period]">
+            <p>{{ location.name }}: {{ location.address }}</p>
+            <p class="description">{{ location.description }}</p> <!-- Display the description here -->
+            <p class="rating">Rating: <span class="rating-value">{{ location.rating }}</span></p>
+            <hr>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  
