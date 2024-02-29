@@ -1,10 +1,12 @@
 /// <reference types="@types/googlemaps" />
 
+
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { DataService } from '../app.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 declare var google: any;
 
@@ -24,12 +26,13 @@ export class LandingComponent implements OnInit {
   public addressControl = new FormControl();
   @ViewChild('search', {static: false}) public searchElementRef!: ElementRef;
 
-  constructor(private ngZone: NgZone,  private http: HttpClient, private router: Router, private dataService: DataService) {}
-
+  constructor(private ngZone: NgZone,  private http: HttpClient, private router: Router, private dataService: DataService, private spinner: NgxSpinnerService) {}
+  
   ngOnInit() {}
 
   ngAfterViewInit() {
     this.initAutocomplete();
+    
   }
 
   private initAutocomplete(): void {
@@ -54,6 +57,7 @@ export class LandingComponent implements OnInit {
   }
 
   submit() {
+    this.spinner.show();
     // console.log(this.startDate);
     // console.log(this.endDate);
     // console.log(this.specification);

@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.7)"
+  template="<img src='/assets/logo-thin.gif' />"
+  
+>
+<p>‎</p>
+<p class="subtitle">Loading</p>
+</ngx-spinner>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +23,7 @@
 
   <div class="container">
     <img src="/assets/logo.png" alt="TravelABull Logo" class="logo">
-    <!--<div class="subtitle">An AI Powered Travel Initiary</div>-->
+    <div class="subtitle">An AI Powered Travel Initiary</div>
     
     <div class="subsubtitle">Enter your Destinations</div>
     <mat-form-field appearance="fill" style="width: 300px">
@@ -44,4 +51,3 @@
     <button mat-raised-button style="width: 300px" class="button"  (click)="submit()">Submit</button>
   </div>
 </body>
-</html>

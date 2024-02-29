@@ -28,6 +28,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MatListModule } from '@angular/material/list';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 const routes: Routes = [
   // Other routes...
 
@@ -63,7 +65,8 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatListModule,
     MatGridListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
