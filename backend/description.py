@@ -22,7 +22,7 @@ def get_summaries(cities):
 def get_location_descriptions(locations):
     descriptions = []
     for location in locations:
-        prompt = f"Write a short, engaging description for the following location based on its name and address: {location['name']}, {location['address']}. Keep it concise and informative."
+        prompt = f"Write a short, engaging description for the following location based on its name and address: {location['name']}, {location['address']}. Keep it concise and informative. Do not use quotations. Also add variation to the beginning, do not start with welcome each time."
         response = client.completions.create(
             model="gpt-3.5-turbo-instruct",  # Adjust the model as needed
             prompt=prompt,
